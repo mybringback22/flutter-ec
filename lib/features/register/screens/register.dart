@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_objective_ec/features/auth/screens/auth_screen.dart';
+import 'package:flutter_objective_ec/features/auth/services/auth_service.dart';
 import 'package:flutter_objective_ec/shared/widgets/custom_button.dart';
 import '../../../constants/global_variables.dart';
 import '../../../shared/widgets/custom_text_field.dart';
@@ -68,15 +69,22 @@ class _RegisterState extends State<Register> {
                     const SizedBox(
                       height: 15,
                     ),
-                    CustomButton(buttonText: "Create Account" , onTap: (){
-
-                    },)
+                    CustomButton(
+                      buttonText: "Create Account",
+                      onTap: () {
+                        AuthService authService = AuthService();
+                        authService.signup(
+                            email: "wafia@gmailtt.com",
+                            password: "1234567",
+                            name: "Wafia Nasir");
+                      },
+                    )
                   ],
                 ),
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.popAndPushNamed (context, AuthScreen.routeName);
+                  Navigator.popAndPushNamed(context, AuthScreen.routeName);
                 },
                 child: const Text(
                   "Already have an account?",
