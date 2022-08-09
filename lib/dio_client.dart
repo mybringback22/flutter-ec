@@ -24,6 +24,7 @@ class DioClient{
     print('Error creating user: $e');
   }
 
-  return retrievedUser;
+  return retrievedUser;   
+  
   }
 }
